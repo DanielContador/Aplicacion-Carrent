@@ -1,0 +1,183 @@
+:root {
+    font-size: 12px;
+}
+
+header {
+    background: rgb(255, 255, 255);
+    width: 100%;
+    clear: both;
+    content: '';
+    display: table;
+}
+
+#menu {
+    list-style: none;
+    padding: 0;
+    background: #a80f5c;
+    width: 90%;
+    max-width: 10000px;
+    margin: 0 auto;
+}
+
+header img {
+    width: 120px;
+    height: 120px;
+    float: left;
+    padding: 8px;
+}
+
+nav {
+    float: left;
+}
+
+nav ul li {
+    list-style: none;
+    margin-left: 60px;
+    padding: 20px 0;
+    display: inline-block;
+}
+
+
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    display: block;
+}
+
+nav li a:hover {
+    background: #fc5ff4;
+}
+
+#titu {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+    background-image: url(https://media.istockphoto.com/id/691521554/photo/carbon-metallic-texture-background.jpg?b=1&s=170667a&w=0&k=20&c=R0_hfE6JiEkF1YYhIIVyCBDgSwV92ZssxG4ZZTG_DiY=);
+    text-align: center;
+    color: #ffffff;
+    text-shadow: #140505;
+    /*font-family: "BhuTuka Expanded One", cursive;*/
+    padding: 2rem;
+}
+
+#subtitu {
+    font-size: 2em;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    padding: 2rem;
+    color: #0b092e;
+    font-weight: bold;
+}
+
+#footerform {
+    margin-top: auto;
+    background: #202020;
+    text-align: center;
+}
+
+p{
+    font-size: 16px;
+}
+
+body {
+    background-image: url(https://s1.1zoom.me/b5050/12/349835-svetik_3840x2160.jpg);
+    background-size: cover;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+}
+
+th,
+td {
+    padding: 8px;
+    border: 1px solid rgb(255, 254, 254);
+}
+
+.bienvenida {
+    background-color: #0b092e;
+    text-align: center;
+    opacity: 0.9;
+    padding: 1rem;
+}
+
+.textcarrusel {
+    font-size: 12px;
+    background-color: #140505;
+    opacity: 70%;
+}
+
+.item {
+    background-color: #0b092e;
+    opacity: 0.85;
+    padding: 2rem;
+    border-style: inset;
+    border-color: #0b092e;
+}
+
+#sigue {
+    text-align: center;
+}
+
+#botoninsta {
+    background-color: #dc143c;
+    object-position: center;
+}
+
+.img-fluid {
+    width: 100%;
+    height: 30rem;
+    object-fit: cover;
+}
+
+.imagencarrusel {
+    width: 100%;
+    height: 20rem;
+    object-fit: scale-down;
+    background-color: #140505;
+}
+
+@media screen and (max-width:600px) {
+    .img-fluid {
+        width: 100%;
+        height: 10rem;
+        object-fit: cover;
+    }
+}
+
+#logo {
+    max-width: 2rem;
+}
+
+#delete {
+    max-width: 2rem;
+}
+
+#editar {
+    max-width: 2rem;
+}
+
+#agregar {
+    max-width: 2rem;
+    float: right;
+}
+
+.agregarserv {
+    text-align: right;
+}
+
+#carrito {
+    color: #140505;
+}
+
+.volver {
+    background-color: #0b092e;
+}
+
+.hello-msg {
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+}

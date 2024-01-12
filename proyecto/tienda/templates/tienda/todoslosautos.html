@@ -1,0 +1,33 @@
+{% extends 'tienda/main.html' %}
+{% load static %}
+
+{% block content %}
+<br><br>
+<div class="row">
+    {% for product in productos %}
+    <div class="col-lg-4">
+        <img class="thumbnail" src="{{product.imagenURL}}">
+        <div class="box-element product">
+            <h6><strong>{{product.nombre}}</strong></h6>
+            <hr>
+            <form method="post" action="{% url 'cambiar' product.id %}">
+                {% csrf_token %}
+                <button class="btn btn-outline-secondary" type="submit" name="cambiar_disponibilidad">
+                    {% if product.disponible %}Quitar{% else %}Poner{% endif %} disponible
+                </button>
+            </form>
+            <br>
+            <form method="post" action="{% url 'cambiar' product.id %}">
+                {% csrf_token %}
+                <label for="nuevo_precio">Nuevo precio:</label>
+                <input type="number" name="nuevo_precio" step="0.01" value="{{ product.precio }}">
+                <button class="btn btn-outline-secondary" type="submit" name="cambiar_precio">Cambiar precio</button>
+            </form>
+            <hr>
+            <a class="btn btn-outline-success" href="#">Ver</a>
+            <h4 style="display: inline-block; float: right"><strong>${{producto.precio}}</strong></h4>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

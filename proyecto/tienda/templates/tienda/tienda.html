@@ -1,0 +1,37 @@
+{% extends 'tienda/main.html' %} 
+{% load static %} 
+    {% block content %}
+    <br><br>
+    <div style="margin-top: 10rem;" class="row">
+
+		{% for product in productos%}
+		<div class="col-lg-4">
+			<img class="thumbnail" src="{{product.imagenURL}}">
+			<div class="box-element product">
+				<h6><strong>{{product.nombre}}</strong></h6>
+				<h6>Numero de puertas: {{product.ndepuertas}}</h6>
+				<h6>Color: {{product.color}}</h6>
+				<h6>Patente: {{product.patente}}</h6>
+				{% if "admin" in user_groups %}
+				<!-- Display the admin-only options -->
+				<a  href="{% url 'eliminar' product.id%}" class="confirmareliminar"><img style="max-width: 2rem;" src="{% static 'horas/img/delete.png' %}" id="delete" alt="delete"></a>
+				{% endif %}
+				
+				<hr>
+
+				<button  data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Seleccionar vehículo</button>
+				
+				<h4 style="display: inline-block; float: right"><strong>
+					${{product.precio}}</strong></h4>
+
+			</div>
+		</div>
+{% endfor %}
+
+	</div>
+
+
+
+    {% endblock content %}
+
+

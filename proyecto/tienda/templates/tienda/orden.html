@@ -1,0 +1,32 @@
+{% extends 'tienda/main.html' %} 
+{% load static %} 
+{% block content %}
+<br><br>
+<div style="margin-top: 10rem;" class="row">
+	{% for ord in orden %}
+	<div class="col-lg-4">
+		<div class="box-element product">
+			<h6><strong>id de la orden:{{ ord.id }}</strong></h6>
+			<h6>Estado: {{ ord.completado }}</h6>
+			<h6>Fecha: {{ ord.fecha_orden }}</h6>
+	
+			{% if ord.cliente %}
+			<h6>Cliente: {{ ord.cliente.nombre }}</h6>
+			{% endif %}
+	
+			<hr>
+	
+			<ul style="color:#000000">
+				{% for op in ord.ordenproducto_set.all %}
+				<li>Vehiculo: {{ op.producto.nombre }}</li>
+				<li>Días: {{ op.cantidad }}</li>
+				{% endfor %}
+			</ul>
+
+		</div>
+	</div>
+	{% endfor %}
+   
+</div>
+
+{% endblock content %}

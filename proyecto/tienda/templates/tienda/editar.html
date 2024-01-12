@@ -1,0 +1,23 @@
+{% extends 'tienda/main.html' %} 
+{% load static %} 
+    {% block content %}
+<!-- product_form.html -->
+<div style="margin-top: 4em;">
+    <h1>Agregar nuevo vehículo</h1>
+    <div style="padding-top: 2em; padding-bottom: 2em; background-color: #0b092e;">
+        <div style="background-color: #0b092e;">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-warning" type="submit">Guardar</button>
+              </form>
+        </div>
+    
+    </div>
+    
+
+</div>
+
+
+
+{% endblock content %}

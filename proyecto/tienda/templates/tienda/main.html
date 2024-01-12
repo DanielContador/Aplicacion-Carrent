@@ -1,0 +1,113 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="{% static 'tienda/css/main.css' %}">
+    <title>Tienda</title>
+
+    <script type="text/javascript">
+
+
+        var user = '{{request.user}}'
+
+		function getCookie(name) {
+		var cookieValue = null;
+		if (document.cookie && document.cookie !== '') {
+		    var cookies = document.cookie.split(';');
+		    for (var i = 0; i < cookies.length; i++) {
+		        var cookie = cookies[i].trim();
+		        // Does this cookie string begin with the name we want?
+		        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		            break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		var csrftoken = getCookie('csrftoken');
+
+    </script>
+</head>
+
+<body>
+
+
+
+
+    <nav id="volver" class="navbar navbar-expand-md navbar-dark fixed-top ">
+        
+            <a class="navbar-brand" href="{% url 'index' %}">
+                Inicio
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'tienda' %}">Tienda<span class="sr-only">(current)</span></a>
+                {% if "admin" in user_groups %}
+    <!-- Display the admin-only options -->
+    <a class="nav-link" href="{% url 'editar' %}"> Agregar vehiculo</a>
+    <a class="nav-link" href="{% url 'todos' %}"> Administrar vehiculos</a>
+    <a class="nav-link" href="{% url 'orden' %}">Ver ordenes</a>
+                {% endif %}
+               
+              </li>
+            </ul>
+
+             <div class="form-inline my-2 my-lg-0">
+                    
+                    <!-- <a href="#"class="btn btn-warning">Inicia sesión</a> -->
+                        
+                    <a href="{% url 'carrito' %}">
+                       <img  id="cart-icon" src="{% static 'tienda/img/carrito.png' %}">
+                       </a>
+                   <p id="cart-total">{{cartItems}}</p>
+                   <form method="post" action="{% url 'clear_cart' %}">
+                    {% csrf_token %}
+                    <button class="btn btn-danger" type="submit">Vaciar carrito</button>
+                  </form>
+                   
+
+                   </div>
+                 </div>
+    </nav>
+    
+
+     <div class="container">
+            <br>
+            {% block content %}
+
+
+            {% endblock content %}
+         </div>
+
+    <br><br><br><br>
+    
+    <br><br><br><br>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="{% static 'tienda/js/carrito.js' %}"></script>
+</body>
+
+<footer id="footerform">
+
+
+    <br><br>
+    <p>Carrent</p><br>
+</footer>
+
+</html>
+ 

@@ -1,0 +1,24 @@
+
+{% extends 'tienda/main.html' %} 
+{% load static %} 
+    {% block content %}
+
+    <div style="margin-top: 10rem; background-color: #0b092e; height: auto;">
+<div style="padding-top: 2em; padding-bottom: 2em;">
+    <h1 style="color: #ffffff;">Eliminar vehículo</h1>
+
+    <p>Seguro que deseas eliminar "{{ producto.nombre }}"?</p>
+    <img style="    width: 30%;
+    height: 100%
+    ;
+    object-fit: cover;" class="thumbnail" src="{{producto.imagenURL}}">
+    <form method="POST">
+      {% csrf_token %}
+      <button class="btn btn-warning" type="submit">Sí, eliminar</button>
+     
+    </form>
+</div>
+
+    </div>
+
+{% endblock content %}
